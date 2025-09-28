@@ -1,0 +1,30 @@
+# .NET build results
+bin/
+obj/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Rider IDE files
+.idea/
+*.sln.iml
+
+# Visual Studio Code
+.vscode/
+
+# NuGet packages
+*.nupkg
+# Package directories
+packages/
+
+# Other
+*.log
+*.vs/
+TestResults/
+
+# OS generated files
+.DS_Store
+Thumbs.db
