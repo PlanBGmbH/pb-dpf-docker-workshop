@@ -1,0 +1,20 @@
+services:
+  simple-backend:
+    build:
+      context: ./simple_Backend/SimpleBackend
+      dockerfile: SimpleBackend/Dockerfile
+    container_name: simple-backend
+    networks:
+      - dotnet-network
+    ports:
+      - "8020:8080"
+  simple-client:
+    build:
+      context: ./simple_Client/ClientApplication
+      dockerfile: ClientApplication/Dockerfile
+    container_name: simple-client
+    networks:
+      - dotnet-network
+networks:
+  dotnet-network:
+    driver: bridge
