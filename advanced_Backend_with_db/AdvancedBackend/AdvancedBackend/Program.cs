@@ -11,6 +11,8 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 var app = builder.Build();
 
+await Task.Delay(5000); // Wait for Postgres to be ready
+
 // Auto-create DB schema at startup (for demo purposes)
 using (var scope = app.Services.CreateScope())
 {
