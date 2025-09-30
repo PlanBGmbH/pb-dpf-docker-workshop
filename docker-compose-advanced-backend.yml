@@ -1,13 +1,11 @@
 services:
   api:
-    build: 
-      context: ./advanced_Backend_with_db/AdvancedBackend
-      dockerfile: AdvancedBackend/Dockerfile
+    build: ?
     container_name: dotnet-api
     environment:
       - ConnectionStrings__Default=Host=db;Port=5432;Database=workshop;Username=postgres;Password=postgres
     ports:
-      - "8090:8080"
+      - "8090:?"
     depends_on:
       - db
     networks:
@@ -22,12 +20,14 @@ services:
       - POSTGRES_DB=workshop
     volumes:
       - db_data:/var/lib/postgresql/data
-      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ?:/docker-entrypoint-initdb.d/init.sql
     networks:
-      - backend
+      - another-network
   
 volumes:
   db_data:
 
 networks:
   backend:
+  another-network:
+    driver: None
